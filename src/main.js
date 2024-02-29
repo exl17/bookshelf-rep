@@ -31,30 +31,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Проверяем текущую страницу и применяем соответствующие стили к ссылкам
+// Проверяем текущий URL страницы и применяем соответствующие стили к ссылкам
 document.addEventListener('DOMContentLoaded', () => {
-    const currentPage = window.location.pathname;
+    const currentPage = window.location.href;
     const homeLink = document.getElementById('home-link');
     const shoppingListLink = document.getElementById('shopping-list-link');
     
-    if (currentPage === '/index.html') {
+    // Проверяем, содержит ли текущий URL абсолютный путь к index.html
+    if (currentPage.includes('/index.html') || currentPage.endsWith('/')) {
         homeLink.classList.add('button');
         shoppingListLink.classList.remove('button');
-    } else if (currentPage === '/shopping-list.html') {
+    } else if (currentPage.includes('/shopping-list.html')) {
         homeLink.classList.remove('button');
         shoppingListLink.classList.add('button');
     }
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    const currentPage = window.location.pathname;
+    const currentPage = window.location.href;
     const homeLink = document.getElementById('backdrop-home-link');
     const shoppingListLink = document.getElementById('backdrop-shopping-list-link');
     
-    if (currentPage === '/index.html') {
+    // Проверяем, содержит ли текущий URL абсолютный путь к index.html
+    if (currentPage.includes('/index.html') || currentPage.endsWith('/')) {
         homeLink.classList.add('button');
         shoppingListLink.classList.remove('button');
-    } else if (currentPage === '/shopping-list.html') {
+    } else if (currentPage.includes('/shopping-list.html')) {
         homeLink.classList.remove('button');
         shoppingListLink.classList.add('button');
     }
@@ -92,32 +94,26 @@ document.addEventListener('DOMContentLoaded', () => {
     closeIcon.addEventListener('click', burgerMenu);
 });
 
+// Функция для прокрутки страницы наверх
 function scrollToTop() {
-           window.scrollTo({
-               top: 0,
-               behavior: 'smooth' // плавная прокрутка
-           });
-       }
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // плавная прокрутка
+    });
+}
 
+// Функция, чтобы показать кнопку при прокрутке
+window.onscroll = function() {
+    scrollFunction();
+};
 
+function scrollFunction() {
+    if (document.documentElement.scrollTop > 250) {
+        document.getElementById("scrollUpButton").style.display = "block";
+    } else {
+        document.getElementById("scrollUpButton").style.display = "none";
+    }
+}
 
-
-       // Функция, чтобы показать кнопку при прокрутке
-       window.onscroll = function() {scrollFunction()};
-
-
-
-
-       function scrollFunction() {
-           if (document.documentElement.scrollTop > 250) {
-               document.getElementById("scrollUpButton").style.display = "block";
-           } else {
-               document.getElementById("scrollUpButton").style.display = "none";
-           }
-       }
-
-
-
-
-       // Добавляем обработчик событий клика для кнопки
-       document.getElementById("scrollUpButton").addEventListener("click", scrollToTop);
+// Добавляем обработчик событий клика для кнопки прокрутки наверх
+document.getElementById("scrollUpButton").addEventListener("click", scrollToTop);
