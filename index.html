@@ -9,20 +9,63 @@
      
     
     <script type="module" crossorigin src="/bookshelf-rep/commonHelpers.js"></script>
-    <link rel="stylesheet" href="/bookshelf-rep/assets/index-0a9483a8.css">
+    <link rel="stylesheet" href="/bookshelf-rep/assets/index-c5dda0e9.css">
   </head>
   <body>
     <header class="header">
   <div class="name-header">
-  <a class="header-logo" href="/"><img alt="logo" src="/bookshelf-rep/assets/logo-cf9bf207.svg"> </a>
-  <p class="bookshelf">BookShelf</p>
+    <a class="header-logo" href="/">
+      <svg class="logo-dark" width="24" height="24">
+        <use href="./img/icons.svg#logo-dark"></use>
+      </svg>
+    </a>
+    <a class="bookshelf" href="/">BookShelf</a>
   </div>
-  <label class="switch">
-  <input type="checkbox" id="toggle">
-  <span class="slider"></span>
-</label>
+  <nav class="nav-links">
+    <a href="./index.html" class="nav-link active" id="home-link">Home</a>
+    <a href="./shopping-list.html" class="nav-link" id="shopping-list-link">Shopping List
+      <svg class="icon-cart active">
+        <use href="./img/icons.svg#icon-cart"></use>
+      </svg>
+    </a>
+  </nav>
+  <div class="switch-container">
+
+    <label class="switch">
+      <input type="checkbox" id="toggle">
+      <span class="slider"></span>
+    </label>
+    <div class="burger" id="burger">
+      <svg id="x-close" class="x-close" width="24" height="24">
+        <use href="./img/icons.svg#x-close"></use>
+      </svg>
+      <svg class="icon-logo" width="24" height="24">
+        <use href="./img/icons.svg#burger-menu"></use>
+      </svg>
+
+    </div>
+
+
 </header>
 
+<div id="backdrop">
+  <div class="background-image"></div>
+  <nav class="backdrop-nav-links">
+    <a href="./index.html" class="backdrop-nav-link active" id="backdrop-home-link">Home</a>
+    <a href="./shopping-list.html" class="backdrop-nav-link" id="backdrop-shopping-list-link">Shopping List
+      <svg class="backdrop-icon-cart">
+        <use href="./img/icons.svg#icon-cart"></use>
+      </svg>
+    </a>
+  </nav>
+
+</div>
+
+<button id="scrollUpButton" class="scrollUpButton">
+  <svg class="icon-scroll" width="24" height="24">
+    <use href="./img/icons.svg#icon-scroll"></use>
+  </svg>
+</button>
     <section class="vite-promo">
   <div class="container">
     <div class="wrapper">
